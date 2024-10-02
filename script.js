@@ -90,6 +90,7 @@ rybreadVehicleButton.addEventListener("click", () => {
 
 // showTheseVehicles(vehicles);
 
+//vis alle vehicles
 const showAllVehiclesButton = document.getElementById("AllVehiclesButton");
 
 function showTheseVehicles(arr) {
