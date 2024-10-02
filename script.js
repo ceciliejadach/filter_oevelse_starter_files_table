@@ -90,6 +90,8 @@ rybreadVehicleButton.addEventListener("click", () => {
 
 // showTheseVehicles(vehicles);
 
+const showAllVehiclesButton = document.getElementById("AllVehiclesButton");
+
 function showTheseVehicles(arr) {
   arr.forEach((each) => {
     tbodyPointer.innerHTML += `<tr>
@@ -103,5 +105,8 @@ function showTheseVehicles(arr) {
     </tr>`;
   });
 }
+showAllVehiclesButton.addEventListener("click", () => {
+  showTheseVehicles(vehicles);
+});
 
 // if(each.stops) {<td>${each.stops}</td>} else {`<td>-</td>`} = ${each.stops ? `<td>${each.stops}</td>` : `<td>-</td>`}
