@@ -18,10 +18,6 @@ const tbodyPointer = document.querySelector("tbody");
 const allElectricArr = vehicles.filter(isVehicleElectric);
 const allElectricVehiclesButton = document.getElementById("ElectricVehicleButton");
 
-console.log(allElectricArr);
-
-// showTheseVehicles(allElectricArr);
-
 function isVehicleElectric(vehicle) {
   if (vehicle.isElectric) {
     return true;
@@ -33,29 +29,28 @@ function isVehicleElectric(vehicle) {
 allElectricVehiclesButton.addEventListener("click", () => {
   showTheseVehicles(allElectricArr);
 });
+// showTheseVehicles(allElectricArr);
 
 //2. en der viser alle fartøjer med mere end 2 sæder
 
 const allMoreThanTwoArr = vehicles.filter(isVehicleMoreThanTwo);
 const moreThanTwoButton = document.getElementById("MoreThanTwoButton");
 
-// showTheseVehicles(allMoreThanTwoArr);
-
 function isVehicleMoreThanTwo(vehicle) {
   if (vehicle.passengers > 2) {
     return true;
   }
 }
+
 moreThanTwoButton.addEventListener("click", () => {
   showTheseVehicles(allMoreThanTwoArr);
 });
+// showTheseVehicles(allMoreThanTwoArr);
 
 //3. alle fartøjer el-drevne fartøjer ejet af Jonas
 
 const allElectricAndOwnedArr = vehicles.filter(isElectricAndOwned);
 const electricAndOwnedButton = document.getElementById("ElectricAndOwnedButton");
-
-// showTheseVehicles(allElectricAndOwnedArr);
 
 function isElectricAndOwned(vehicle) {
   if (vehicle.isElectric === true && vehicle.ownedBy === "Jonas") {
@@ -68,13 +63,12 @@ function isElectricAndOwned(vehicle) {
 electricAndOwnedButton.addEventListener("click", () => {
   showTheseVehicles(allElectricAndOwnedArr);
 });
+// showTheseVehicles(allElectricAndOwnedArr);
 
 //4. alle rugbrøds drevne fartøjer med plads til mere end en
 
 const allRybreadAndTandem = vehicles.filter(isRybreadAndTandem);
 const rybreadVehicleButton = document.getElementById("RybreadVehicle");
-
-// showTheseVehicles(allRybreadAndTandem);
 
 function isRybreadAndTandem(vehicle) {
   if (vehicle.fuel === "Rugbrød" && vehicle.passengers > 1) {
@@ -88,12 +82,13 @@ rybreadVehicleButton.addEventListener("click", () => {
   showTheseVehicles(allRybreadAndTandem);
 });
 
-// showTheseVehicles(vehicles);
+// showTheseVehicles(allRybreadAndTandem);
 
 //vis alle vehicles
 const showAllVehiclesButton = document.getElementById("AllVehiclesButton");
 
 function showTheseVehicles(arr) {
+  tbodyPointer.innerHTML = ""; //fjerner indholdet, når man klikker på en ny filtrering
   arr.forEach((each) => {
     tbodyPointer.innerHTML += `<tr>
     <td>${each.type}</td>
@@ -109,5 +104,6 @@ function showTheseVehicles(arr) {
 showAllVehiclesButton.addEventListener("click", () => {
   showTheseVehicles(vehicles);
 });
+// showTheseVehicles(vehicles);
 
 // if(each.stops) {<td>${each.stops}</td>} else {`<td>-</td>`} = ${each.stops ? `<td>${each.stops}</td>` : `<td>-</td>`}
